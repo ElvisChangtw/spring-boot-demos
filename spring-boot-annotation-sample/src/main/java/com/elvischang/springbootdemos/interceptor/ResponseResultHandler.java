@@ -1,4 +1,4 @@
-package com.elvischang.springbootdemos.advice;
+package com.elvischang.springbootdemos.interceptor;
 
 import com.elvischang.springbootdemos.annotation.ResponseResult;
 import com.elvischang.springbootdemos.enums.ResponseCode;
