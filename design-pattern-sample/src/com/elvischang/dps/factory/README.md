@@ -1,7 +1,7 @@
 # Factory Pattern
 
 ## Simple Factory
-![simple-factory drawio](https://user-images.githubusercontent.com/22806253/192011293-d3b22709-8d68-47ce-bff2-adb1273632f3.png)
+![simple-factory drawio](https://user-images.githubusercontent.com/22806253/192013325-b9bbefa2-3c60-4b22-842b-69194714bfd1.png)
 
 ## Factory Method
 ![factory-method drawio](https://user-images.githubusercontent.com/22806253/192011283-64a70739-b420-4860-bc4c-46fb579c85fc.png)
