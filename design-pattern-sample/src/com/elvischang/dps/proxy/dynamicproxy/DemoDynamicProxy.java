@@ -18,6 +18,5 @@ public class DemoDynamicProxy {
         customerProxy.printFullName();
         System.out.println(handler.getInvocationCount());
 
-
     }
 }
