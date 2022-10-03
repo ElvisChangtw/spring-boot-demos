@@ -1,7 +1,7 @@
-# Spring-boot customized annotation practice
+# Websocket Practice
 
 ## Flow
-![flow](https://user-images.githubusercontent.com/22806253/190847274-be5d7468-0d51-454e-9ec2-dd559fb2f202.png)
+![image](https://user-images.githubusercontent.com/22806253/193602567-74403245-c69b-4f54-b0ed-e257d1ba8995.png)
 
 
 ## 1. Run the application
