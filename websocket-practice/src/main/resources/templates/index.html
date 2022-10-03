@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket Page</title>
+</head>
+<body>
+
+
+<h1>WebSocket Practice</h1>
+<div>
+    <label for="content">JSON Message</label>
+    <input id="content" type="text" placeholder="say something in json">
+    <button id="sayBtn">say</button>
+    <button id="clearJson">clear</button>
+</div>
+<div>
+    <textarea id="textarea"  rows="20" cols="50"></textarea>
+</div>
+
+<script>
+
+let sayBtn = document.getElementById("sayBtn");
+let clearJsonBtn = document.getElementById("clearJson");
+let textArea = document.getElementById("textarea");
+let ws = new WebSocket("ws://localhost:8080/WebSocketServer/Elvis");
+
+
+sayBtn.onclick = () => {
+    let content = document.querySelector("#content");
+    sendJson(content.value);
+    content.value = "";
+};
+
+clearJsonBtn.onclick = () => {
+    textArea.value = "";
+};
+
+
+ws.onopen = function(e) {
+    console.log("[open] Connection established");
+};
+
+ws.onmessage = function(event) {
+    let data = JSON.parse(event.data);
+    switch(data.type) {
+        case "join":
+            console.log(data.name + " joined the chat.");
+            textArea.value = textArea.value + "\n" + data.content;
+            break;
+        case "leave":
+            console.log(data.name + " left the chat.");
+            textArea.value = textArea.value + "\n" + data.content;
+            break;
+        case "text":
+            console.log( data.name + " said: " + data.content);
+            textArea.value = textArea.value + "\n" + data.content;
+            break;
+    }
+};
+
+
+ws.onclose = function(event) {
+    if (event.wasClean) {
+        console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+    } else {
+        console.log('[close] Connection died');
+    }
+};
+
+ws.onerror = function(error) {
+    alert(`[error] ${error.message}`);
+};
+
+
+function sendJson(message) {
+    let content = document.getElementById("content");
+    let json = {
+        type: "text",
+        content: message,
+        date: Date.now()
+    };
+    ws.send(JSON.stringify(json));
+    content.value = "";
+}
+
+</script>
+</body>
+</html>
