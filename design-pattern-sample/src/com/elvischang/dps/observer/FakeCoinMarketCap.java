@@ -1,4 +1,4 @@
-package com.elvischang.dps.observer;
+package com.elvischang.dps.oberver;
 
 /**
  * @author elvischang
